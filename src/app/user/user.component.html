@@ -1,0 +1,12 @@
+<div *ngIf="!isLogged">
+  <h2>Iniciar sesión</h2>
+  <input type="text" [(ngModel)]="username" placeholder="Escribe tu usuario">
+  <button (click)="login()">Login</button>
+</div>
+
+<div *ngIf="isLogged">
+  <h2>Bienvenido, {{ savedUsername }}</h2>
+  <button (click)="logout()">Cerrar sesión</button>
+
+  <app-game></app-game>
+</div>

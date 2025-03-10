@@ -1,0 +1,19 @@
+<div style="display: flex; justify-content: center; flex-direction: column;">
+  <h2 class="title">Lista de Productos</h2>
+  <button class="custom-button" (click)="toggleSort()">Ordenar por precio {{ sortOrder === 'desc' ? 'Ascendente' : 'Descendente' }}</button>
+</div>
+
+@defer {
+  <div class="responsive-product-container">
+    @for (product of products(); track product.id) {
+      <div class="product-card">
+        <h3 class="product-title">{{ product.title }}</h3>
+        <h4  class="product-category">{{ product.category }}</h4>
+        <img class="product-image" src="{{ product.image }}" alt="{{ product.title }}">
+        <p class="product-price">${{ product.price }}</p>
+        <p class="product-description">{{ product.description }}</p>
+        <p class="product-rating">⭐️ {{ product.rating.rate }} ({{product.rating.count}})</p>
+      </div>
+    }
+  </div>
+}
